@@ -62,16 +62,10 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to Edit
         </Button>
-        <div className="flex space-x-2">
-          <Button onClick={handlePrint} variant="outline">
-            <Download className="h-4 w-4 mr-2" />
-            Download PDF
-          </Button>
-          <Button variant="outline">
-            <Mail className="h-4 w-4 mr-2" />
-            Send Email
-          </Button>
-        </div>
+        <Button onClick={handlePrint} variant="outline">
+          <Download className="h-4 w-4 mr-2" />
+          Download PDF
+        </Button>
       </div>
 
       {/* Invoice Document */}
