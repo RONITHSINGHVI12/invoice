@@ -133,7 +133,7 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
                   <tr>
                     <th className="text-left p-4 font-semibold">Description</th>
                     <th className="text-center p-4 font-semibold">Qty</th>
-                    <th className="text-right p-4 font-semibold">Rate</th>
+                    <th className="text-right p-4 font-semibold">Rate (₹)</th>
                     <th className="text-right p-4 font-semibold">Amount</th>
                   </tr>
                 </thead>
@@ -142,8 +142,8 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
                     <tr key={item.id} className={index % 2 === 0 ? "bg-card" : "bg-muted/30"}>
                       <td className="p-4">{item.description}</td>
                       <td className="text-center p-4">{item.quantity}</td>
-                      <td className="text-right p-4">${item.rate.toFixed(2)}</td>
-                      <td className="text-right p-4 font-semibold">${item.amount.toFixed(2)}</td>
+                      <td className="text-right p-4">₹{item.rate.toFixed(2)}</td>
+                      <td className="text-right p-4 font-semibold">₹{item.amount.toFixed(2)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -157,18 +157,18 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
               <div className="space-y-2 p-4 bg-muted/30 rounded-lg">
                 <div className="flex justify-between">
                   <span>Subtotal:</span>
-                  <span className="font-semibold">${calculateSubtotal().toFixed(2)}</span>
+                  <span className="font-semibold">₹{calculateSubtotal().toFixed(2)}</span>
                 </div>
                 {invoiceData.taxRate > 0 && (
                   <div className="flex justify-between">
                     <span>Tax ({invoiceData.taxRate}%):</span>
-                    <span className="font-semibold">${calculateTax().toFixed(2)}</span>
+                    <span className="font-semibold">₹{calculateTax().toFixed(2)}</span>
                   </div>
                 )}
                 <div className="border-t pt-2">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total:</span>
-                    <span className="text-primary">${calculateTotal().toFixed(2)}</span>
+                    <span className="text-primary">₹{calculateTotal().toFixed(2)}</span>
                   </div>
                 </div>
               </div>

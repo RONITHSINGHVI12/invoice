@@ -258,7 +258,7 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
                   />
                 </div>
                 <div className="col-span-4 md:col-span-2">
-                  <Label>Rate ($)</Label>
+                  <Label>Rate (₹)</Label>
                   <Input
                     type="number"
                     min="0"
@@ -269,7 +269,7 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
                 </div>
                 <div className="col-span-3 md:col-span-2">
                   <Label>Amount</Label>
-                  <div className="text-lg font-semibold pt-2">${item.amount.toFixed(2)}</div>
+                  <div className="text-lg font-semibold pt-2">₹{item.amount.toFixed(2)}</div>
                 </div>
                 <div className="col-span-1">
                   {formData.lineItems.length > 1 && (
@@ -292,7 +292,7 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
               <div className="w-80 space-y-2">
                 <div className="flex justify-between">
                   <span>Subtotal:</span>
-                  <span className="font-semibold">${calculateSubtotal().toFixed(2)}</span>
+                  <span className="font-semibold">₹{calculateSubtotal().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-2">
@@ -307,11 +307,11 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
                       className="w-20"
                     />
                   </div>
-                  <span className="font-semibold">${calculateTax().toFixed(2)}</span>
+                  <span className="font-semibold">₹{calculateTax().toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold border-t pt-2">
                   <span>Total:</span>
-                  <span>${calculateTotal().toFixed(2)}</span>
+                  <span>₹{calculateTotal().toFixed(2)}</span>
                 </div>
               </div>
             </div>
