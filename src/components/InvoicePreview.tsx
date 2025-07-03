@@ -17,8 +17,10 @@ interface InvoiceData {
   clientName: string;
   clientEmail: string;
   clientAddress: string;
+  clientGST: string;
   businessName: string;
   businessAddress: string;
+  businessGST: string;
   lineItems: LineItem[];
   taxRate: number;
   notes: string;
@@ -87,6 +89,11 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
                 <div className="text-invoice-gray whitespace-pre-line">
                   {invoiceData.businessAddress}
                 </div>
+                {invoiceData.businessGST && (
+                  <div className="text-invoice-gray">
+                    <p className="text-sm">GST: {invoiceData.businessGST}</p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -102,6 +109,11 @@ const InvoicePreview = ({ invoiceData, onBack }: InvoicePreviewProps) => {
                 )}
                 {invoiceData.clientAddress && (
                   <div className="whitespace-pre-line">{invoiceData.clientAddress}</div>
+                )}
+                {invoiceData.clientGST && (
+                  <div className="text-invoice-gray">
+                    <p className="text-sm">GST: {invoiceData.clientGST}</p>
+                  </div>
                 )}
               </div>
             </div>

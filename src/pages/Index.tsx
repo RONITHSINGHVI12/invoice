@@ -18,8 +18,10 @@ interface InvoiceData {
   clientName: string;
   clientEmail: string;
   clientAddress: string;
+  clientGST: string;
   businessName: string;
   businessAddress: string;
+  businessGST: string;
   lineItems: LineItem[];
   taxRate: number;
   notes: string;

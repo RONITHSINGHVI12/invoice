@@ -22,8 +22,10 @@ interface InvoiceData {
   clientName: string;
   clientEmail: string;
   clientAddress: string;
+  clientGST: string;
   businessName: string;
   businessAddress: string;
+  businessGST: string;
   lineItems: LineItem[];
   taxRate: number;
   notes: string;
@@ -42,8 +44,10 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
     clientName: "",
     clientEmail: "",
     clientAddress: "",
+    clientGST: "",
     businessName: "",
     businessAddress: "",
+    businessGST: "",
     lineItems: [{ id: "1", description: "", quantity: 1, rate: 0, amount: 0 }],
     taxRate: 0,
     notes: ""
@@ -185,6 +189,15 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
                 rows={3}
               />
             </div>
+            <div>
+              <Label htmlFor="businessGST">GST Number</Label>
+              <Input
+                id="businessGST"
+                value={formData.businessGST}
+                onChange={(e) => setFormData(prev => ({ ...prev, businessGST: e.target.value }))}
+                placeholder="22AAAAA0000A1Z5"
+              />
+            </div>
           </CardContent>
         </Card>
 
@@ -220,6 +233,15 @@ const InvoiceForm = ({ onPreview }: InvoiceFormProps) => {
                 onChange={(e) => setFormData(prev => ({ ...prev, clientAddress: e.target.value }))}
                 placeholder="456 Client Ave, City, State 67890"
                 rows={3}
+              />
+            </div>
+            <div>
+              <Label htmlFor="clientGST">GST Number</Label>
+              <Input
+                id="clientGST"
+                value={formData.clientGST}
+                onChange={(e) => setFormData(prev => ({ ...prev, clientGST: e.target.value }))}
+                placeholder="22AAAAA0000A1Z5"
               />
             </div>
           </CardContent>
